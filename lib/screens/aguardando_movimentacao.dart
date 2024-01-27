@@ -103,7 +103,11 @@ class _AguardandoMovimentacaoState extends State<AguardandoMovimentacao> {
                           const SizedBox(height: 8),
                           const Text("Código de Barras: 4309283982398239829389218982321234", style: TextStyle(fontSize: 10)),
                           Center(
-                            child: TextButton(onPressed: () {}, child: const Text("Movimentar")),
+                            child: TextButton(
+                                onPressed: () {
+                                  dialog();
+                                },
+                                child: const Text("Movimentar")),
                           )
                         ],
                       ),
@@ -119,5 +123,37 @@ class _AguardandoMovimentacaoState extends State<AguardandoMovimentacao> {
         ),
       ),
     );
+  }
+
+  dialog() {
+    return showDialog(
+        context: context,
+        builder: (BuildContext context) => AlertDialog(
+              title: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  const Text(
+                    "Movimentação do item",
+                    style: TextStyle(fontSize: 14),
+                  ),
+                  IconButton(
+                      onPressed: () {
+                        Navigator.pop(context);
+                      },
+                      icon: const Icon(
+                        Icons.close,
+                        size: 16,
+                      )),
+                ],
+              ),
+              content: const Text("Para confirmar o armazenamento, do item na Área de armazenamento clique em confirmar."),
+              actions: [
+                ElevatedButton(
+                    onPressed: () {
+                      Navigator.pop(context, 'Confirmar');
+                    },
+                    child: const Text("Confirmar")),
+              ],
+            ));
   }
 }
