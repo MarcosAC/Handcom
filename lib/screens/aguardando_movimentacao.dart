@@ -36,7 +36,6 @@ class _AguardandoMovimentacaoState extends State<AguardandoMovimentacao> {
             Padding(
               padding: const EdgeInsets.all(8.0),
               child: Column(
-                //crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: [
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -61,13 +60,55 @@ class _AguardandoMovimentacaoState extends State<AguardandoMovimentacao> {
                       ElevatedButton(onPressed: () {}, child: const Text("Área de Quarentena"))
                     ],
                   ),
+                  const SizedBox(height: 10),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: const [
                       Text("Itens Encontrados: 132"),
                       Text("Peso: 188.544,01 kg"),
                     ],
-                  )
+                  ),
+                  const SizedBox(height: 10),
+                  Card(
+                    child: Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              const Text("DISPONÍVEL PARA ARMAZENAMENTO", style: TextStyle(fontSize: 8)),
+                              Row(
+                                children: const [
+                                  Text("Quarentena ", style: TextStyle(fontSize: 8)),
+                                  Text(" Armazenamento", style: TextStyle(fontSize: 8)),
+                                ],
+                              ),
+                            ],
+                          ),
+                          const SizedBox(height: 8),
+                          const Text("VERG CA50 10mm RT 12m 2t NV", style: TextStyle(fontSize: 12, fontWeight: FontWeight.bold)),
+                          const Text("(110006889)", style: TextStyle(fontSize: 10)),
+                          const Divider(),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: const [
+                              Text("OR: 350", style: TextStyle(fontSize: 10)),
+                              Text("Qtd: 5.682,92 kg ", style: TextStyle(fontSize: 12)),
+                            ],
+                          ),
+                          const SizedBox(height: 8),
+                          const Text("Lote: 439849321249230842384", style: TextStyle(fontSize: 10)),
+                          const SizedBox(height: 8),
+                          const Text("Código de Barras: 4309283982398239829389218982321234", style: TextStyle(fontSize: 10)),
+                          Center(
+                            child: TextButton(onPressed: () {}, child: const Text("Movimentar")),
+                          )
+                        ],
+                      ),
+                    ),
+                  ),
                 ],
               ),
             ),
