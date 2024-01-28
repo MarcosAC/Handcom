@@ -142,21 +142,33 @@ class _AguardandoMovimentacaoState extends State<AguardandoMovimentacao> {
     return showDialog(
         context: context,
         builder: (BuildContext context) => AlertDialog(
-              title: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              titlePadding: EdgeInsets.zero,
+              contentPadding: const EdgeInsets.only(left: 10, top: 10),
+              shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
+              title: Column(
                 children: [
-                  const Text(
-                    "Movimentação do item",
-                    style: TextStyle(fontSize: 14),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      const Padding(
+                        padding: EdgeInsets.only(left: 10, top: 10),
+                        child: Text(
+                          "Movimentação do item",
+                          style: TextStyle(fontSize: 14),
+                        ),
+                      ),
+                      IconButton(
+                          padding: const EdgeInsets.only(top: 10),
+                          onPressed: () {
+                            Navigator.pop(context);
+                          },
+                          icon: const Icon(
+                            Icons.close,
+                            size: 16,
+                          )),
+                    ],
                   ),
-                  IconButton(
-                      onPressed: () {
-                        Navigator.pop(context);
-                      },
-                      icon: const Icon(
-                        Icons.close,
-                        size: 16,
-                      )),
+                  const Divider(),
                 ],
               ),
               content: const Text("Para confirmar o armazenamento, do item na Área de armazenamento clique em confirmar."),
