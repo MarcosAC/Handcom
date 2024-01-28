@@ -40,25 +40,38 @@ class _AguardandoMovimentacaoState extends State<AguardandoMovimentacao> {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
-                      ElevatedButton.icon(
-                        onPressed: () {},
-                        icon: const Icon(Icons.filter_alt_outlined),
-                        label: const Text("Filtros"),
+                      Expanded(
+                        child: Padding(
+                          padding: const EdgeInsets.only(right: 4),
+                          child: ElevatedButton.icon(
+                            onPressed: () {},
+                            icon: const Icon(Icons.filter_alt_outlined),
+                            label: const Text("Filtros"),
+                          ),
+                        ),
                       ),
-                      ElevatedButton.icon(
-                        onPressed: () {},
-                        icon: const Icon(Icons.menu_outlined),
-                        label: const Text("Ordenamento"),
+                      Expanded(
+                        child: Padding(
+                          padding: const EdgeInsets.only(left: 4),
+                          child: ElevatedButton.icon(
+                            onPressed: () {},
+                            icon: const Icon(Icons.menu_outlined),
+                            label: const Text("Ordenamento"),
+                          ),
+                        ),
                       ),
                     ],
                   ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    children: [
-                      ElevatedButton(onPressed: () {}, child: const Text("Área de Recebimento")),
-                      const SizedBox(width: 10),
-                      ElevatedButton(onPressed: () {}, child: const Text("Área de Quarentena"))
-                    ],
+                  Padding(
+                    padding: const EdgeInsets.only(top: 10, bottom: 10),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      children: [
+                        ElevatedButton(onPressed: () {}, child: const Text("Área de Recebimento")),
+                        const SizedBox(width: 10),
+                        ElevatedButton(onPressed: () {}, child: const Text("Área de Quarentena"))
+                      ],
+                    ),
                   ),
                   const SizedBox(height: 10),
                   Row(
