@@ -1,6 +1,6 @@
 class Produto {
   String? id;
-  String? or;
+  int? or;
   String? item;
   int? quantidade;
   String? lote;
@@ -22,6 +22,7 @@ class Produto {
   Produto.fromJson(Map<String, dynamic> json) {
     id = json['id'];
     item = json['item'];
+    or = json['or'];
     quantidade = json['quantidade'];
     lote = json['lote'];
     codBarras = json['codBarras'];
@@ -33,6 +34,7 @@ class Produto {
     final Map<String, dynamic> data = <String, dynamic>{};
     data['id'] = id;
     data['item'] = item;
+    data['or'] = or;
     data['quantidade'] = quantidade;
     data['lote'] = lote;
     data['codBarras'] = codBarras;
