@@ -1,5 +1,6 @@
 class Produto {
   String? id;
+  String? or;
   String? item;
   int? quantidade;
   String? lote;
@@ -10,6 +11,7 @@ class Produto {
   Produto({
     required this.id,
     required this.item,
+    required this.or,
     required this.quantidade,
     required this.lote,
     required this.codBarras,

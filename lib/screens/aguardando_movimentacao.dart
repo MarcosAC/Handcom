@@ -94,77 +94,78 @@ class _AguardandoMovimentacaoState extends State<AguardandoMovimentacao> {
                       children: const [Text("Itens Encontrados: 132"), Text("Peso: 188.544,01 kg")],
                     ),
                     const SizedBox(height: 10),
-                    Card(
-                      child: Column(
-                        children: [
-                          Padding(
-                            padding: const EdgeInsets.all(8.0),
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Row(
-                                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                  children: [
-                                    Container(
-                                      padding: const EdgeInsets.all(3),
-                                      decoration: const BoxDecoration(color: Color(0xff9fe5cb)),
-                                      child: const Text("DISPONÍVEL PARA ARMAZENAMENTO",
-                                          style: TextStyle(fontSize: 8, fontWeight: FontWeight.bold, color: Color(0xff1b5e20))),
-                                    ),
-                                    Row(
-                                      children: const [
-                                        Text("Quarentena ", style: TextStyle(fontSize: 8, fontWeight: FontWeight.bold)),
-                                        Text(" Armazenamento", style: TextStyle(fontSize: 8, fontWeight: FontWeight.bold)),
-                                      ],
-                                    ),
-                                  ],
-                                ),
-                                const SizedBox(height: 8),
-                                const Text("VERG CA50 10mm RT 12m 2t NV", style: TextStyle(fontSize: 12, fontWeight: FontWeight.bold)),
-                                const Text("(110006889)", style: TextStyle(fontSize: 10)),
-                              ],
-                            ),
-                          ),
-                          const Divider(),
-                          Padding(
-                            padding: const EdgeInsets.all(8.0),
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Row(
-                                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                  children: const [
-                                    Text("OR: 350", style: TextStyle(fontSize: 10)),
-                                    Text("Qtd: 5.682,92 kg ", style: TextStyle(fontSize: 12)),
-                                  ],
-                                ),
-                                const SizedBox(height: 8),
-                                const Text("Lote: 439849321249230842384", style: TextStyle(fontSize: 10)),
-                                const SizedBox(height: 8),
-                                const Text("Código de Barras: 4309283982398239829389218982321234", style: TextStyle(fontSize: 10)),
-                              ],
-                            ),
-                          ),
-                          Container(
-                            decoration: const BoxDecoration(
-                                color: Color(0xFFE3F2FD),
-                                borderRadius: BorderRadius.only(bottomRight: Radius.circular(4), bottomLeft: Radius.circular(4))),
-                            child: Center(
-                              child: TextButton(
-                                  onPressed: () {
-                                    dialog();
-                                  },
-                                  child: const Text("Movimentar",
-                                      style: TextStyle(
-                                        fontSize: 10,
-                                        fontWeight: FontWeight.bold,
-                                        color: Color(0xff0d47a1),
-                                      ))),
-                            ),
-                          )
-                        ],
-                      ),
-                    ),
+                    //const PendenteMovimentacao(),
+                    // Card(
+                    //   child: Column(
+                    //     children: [
+                    //       Padding(
+                    //         padding: const EdgeInsets.all(8.0),
+                    //         child: Column(
+                    //           crossAxisAlignment: CrossAxisAlignment.start,
+                    //           children: [
+                    //             Row(
+                    //               mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    //               children: [
+                    //                 Container(
+                    //                   padding: const EdgeInsets.all(3),
+                    //                   decoration: const BoxDecoration(color: Color(0xff9fe5cb)),
+                    //                   child: const Text("DISPONÍVEL PARA ARMAZENAMENTO",
+                    //                       style: TextStyle(fontSize: 8, fontWeight: FontWeight.bold, color: Color(0xff1b5e20))),
+                    //                 ),
+                    //                 Row(
+                    //                   children: const [
+                    //                     Text("Quarentena ", style: TextStyle(fontSize: 8, fontWeight: FontWeight.bold)),
+                    //                     Text(" Armazenamento", style: TextStyle(fontSize: 8, fontWeight: FontWeight.bold)),
+                    //                   ],
+                    //                 ),
+                    //               ],
+                    //             ),
+                    //             const SizedBox(height: 8),
+                    //             const Text("VERG CA50 10mm RT 12m 2t NV", style: TextStyle(fontSize: 12, fontWeight: FontWeight.bold)),
+                    //             const Text("(110006889)", style: TextStyle(fontSize: 10)),
+                    //           ],
+                    //         ),
+                    //       ),
+                    //       const Divider(),
+                    //       Padding(
+                    //         padding: const EdgeInsets.all(8.0),
+                    //         child: Column(
+                    //           crossAxisAlignment: CrossAxisAlignment.start,
+                    //           children: [
+                    //             Row(
+                    //               mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    //               children: const [
+                    //                 Text("OR: 350", style: TextStyle(fontSize: 10)),
+                    //                 Text("Qtd: 5.682,92 kg ", style: TextStyle(fontSize: 12)),
+                    //               ],
+                    //             ),
+                    //             const SizedBox(height: 8),
+                    //             const Text("Lote: 439849321249230842384", style: TextStyle(fontSize: 10)),
+                    //             const SizedBox(height: 8),
+                    //             const Text("Código de Barras: 4309283982398239829389218982321234", style: TextStyle(fontSize: 10)),
+                    //           ],
+                    //         ),
+                    //       ),
+                    //       Container(
+                    //         decoration: const BoxDecoration(
+                    //             color: Color(0xFFE3F2FD),
+                    //             borderRadius: BorderRadius.only(bottomRight: Radius.circular(4), bottomLeft: Radius.circular(4))),
+                    //         child: Center(
+                    //           child: TextButton(
+                    //               onPressed: () {
+                    //                 dialog();
+                    //               },
+                    //               child: const Text("Movimentar",
+                    //                   style: TextStyle(
+                    //                     fontSize: 10,
+                    //                     fontWeight: FontWeight.bold,
+                    //                     color: Color(0xff0d47a1),
+                    //                   ))),
+                    //         ),
+                    //       )
+                    //     ],
+                    //   ),
+                    // ),
                   ],
                 ),
               ),
