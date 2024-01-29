@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:handcom/models/produto.dart';
 import 'package:handcom/provider/produtos_provider.dart';
 import 'package:provider/provider.dart';
 
-class PendenteMovimentacao extends StatelessWidget {
-  const PendenteMovimentacao({super.key});
+class ItensPendenteMovimentacao extends StatelessWidget {
+  const ItensPendenteMovimentacao({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -28,8 +29,8 @@ class PendenteMovimentacao extends StatelessWidget {
                             Container(
                               padding: const EdgeInsets.all(3),
                               decoration: const BoxDecoration(color: Color(0xff9fe5cb)),
-                              child: const Text("DISPONÍVEL PARA ARMAZENAMENTO",
-                                  style: TextStyle(fontSize: 8, fontWeight: FontWeight.bold, color: Color(0xff1b5e20))),
+                              child: Text(produto.localizacao.toString(),
+                                  style: const TextStyle(fontSize: 8, fontWeight: FontWeight.bold, color: Color(0xff1b5e20))),
                             ),
                             Row(
                               children: const [
@@ -71,7 +72,7 @@ class PendenteMovimentacao extends StatelessWidget {
                     child: Center(
                       child: TextButton(
                           onPressed: () {
-                            //dialog();
+                            dialog(context, provider, produto);
                           },
                           child: const Text("Movimentar",
                               style: TextStyle(
@@ -88,5 +89,41 @@ class PendenteMovimentacao extends StatelessWidget {
         );
       },
     );
+  }
+
+  dialog(BuildContext context, ProdutosProvider provider, Produto produto) {
+    return showDialog(
+        context: context,
+        builder: (context) => AlertDialog(
+                titlePadding: EdgeInsets.zero,
+                contentPadding: const EdgeInsets.only(left: 10, top: 10),
+                shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
+                title: Column(
+                  children: [
+                    Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
+                      const Padding(
+                        padding: EdgeInsets.only(left: 10, top: 10),
+                        child: Text("Movimentação do item", style: TextStyle(fontSize: 14)),
+                      ),
+                      IconButton(
+                          padding: const EdgeInsets.only(top: 10),
+                          onPressed: () {
+                            Navigator.pop(context);
+                          },
+                          icon: const Icon(Icons.close, size: 16)),
+                    ]),
+                    const Divider(),
+                  ],
+                ),
+                content: const Text("Para confirmar o armazenamento, do item na Área de armazenamento clique em confirmar."),
+                actions: [
+                  ElevatedButton(
+                      style: ElevatedButton.styleFrom(backgroundColor: const Color(0xff1976d2)),
+                      onPressed: () {
+                        provider.movimentarProduto(produto);
+                        Navigator.pop(context, 'Confirmar');
+                      },
+                      child: const Text("Confirmar")),
+                ]));
   }
 }
