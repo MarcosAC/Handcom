@@ -10,6 +10,7 @@ class PendenteMovimentacao extends StatelessWidget {
     return Consumer<ProdutosProvider>(
       builder: (context, provider, _) {
         return ListView.builder(
+          shrinkWrap: true,
           itemCount: provider.produtos.length,
           itemBuilder: (context, index) {
             final produto = provider.produtos[index];
