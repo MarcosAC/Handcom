@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:handcom/widgets/itens_movimentados.dart';
 import 'package:handcom/widgets/itens_pendente_movimentacao.dart';
 
 class AguardandoMovimentacao extends StatefulWidget {
@@ -102,42 +103,7 @@ class _AguardandoMovimentacaoState extends State<AguardandoMovimentacao> {
                   ),
                 ),
               ),
-              const Center(child: Text("Itens Movimentados")),
+              const ItensMovimentados(),
             ])));
-  }
-
-  dialog() {
-    return showDialog(
-        context: context,
-        builder: (BuildContext context) => AlertDialog(
-                titlePadding: EdgeInsets.zero,
-                contentPadding: const EdgeInsets.only(left: 10, top: 10),
-                shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
-                title: Column(
-                  children: [
-                    Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
-                      const Padding(
-                        padding: EdgeInsets.only(left: 10, top: 10),
-                        child: Text("Movimentação do item", style: TextStyle(fontSize: 14)),
-                      ),
-                      IconButton(
-                          padding: const EdgeInsets.only(top: 10),
-                          onPressed: () {
-                            Navigator.pop(context);
-                          },
-                          icon: const Icon(Icons.close, size: 16)),
-                    ]),
-                    const Divider(),
-                  ],
-                ),
-                content: const Text("Para confirmar o armazenamento, do item na Área de armazenamento clique em confirmar."),
-                actions: [
-                  ElevatedButton(
-                      style: ElevatedButton.styleFrom(backgroundColor: const Color(0xff1976d2)),
-                      onPressed: () {
-                        Navigator.pop(context, 'Confirmar');
-                      },
-                      child: const Text("Confirmar")),
-                ]));
   }
 }

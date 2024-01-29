@@ -1,19 +1,20 @@
 import 'package:flutter/material.dart';
-import 'package:handcom/models/produto.dart';
 import 'package:handcom/provider/produtos_provider.dart';
 import 'package:provider/provider.dart';
 
-class ItensPendenteMovimentacao extends StatelessWidget {
-  const ItensPendenteMovimentacao({super.key});
+class ItensMovimentados extends StatelessWidget {
+  const ItensMovimentados({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Consumer<ProdutosProvider>(
       builder: (context, provider, _) {
+        final produtosMovimentados = provider.produtos.where((produto) => produto.status == 'Movimentado').toList();
+
         return ListView.builder(
-          itemCount: provider.produtos.length,
+          itemCount: produtosMovimentados.length,
           itemBuilder: (context, index) {
-            final produto = provider.produtos[index];
+            final produto = produtosMovimentados[index];
             return Card(
               child: Column(
                 children: [
@@ -71,7 +72,7 @@ class ItensPendenteMovimentacao extends StatelessWidget {
                     child: Center(
                       child: TextButton(
                           onPressed: () {
-                            dialog(context, provider, produto);
+                            //dialog(context, provider, produto);
                           },
                           child: const Text("Movimentar",
                               style: TextStyle(
@@ -88,41 +89,5 @@ class ItensPendenteMovimentacao extends StatelessWidget {
         );
       },
     );
-  }
-
-  dialog(BuildContext context, ProdutosProvider provider, Produto produto) {
-    return showDialog(
-        context: context,
-        builder: (context) => AlertDialog(
-                titlePadding: EdgeInsets.zero,
-                contentPadding: const EdgeInsets.only(left: 10, top: 10),
-                shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
-                title: Column(
-                  children: [
-                    Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
-                      const Padding(
-                        padding: EdgeInsets.only(left: 10, top: 10),
-                        child: Text("Movimentação do item", style: TextStyle(fontSize: 14)),
-                      ),
-                      IconButton(
-                          padding: const EdgeInsets.only(top: 10),
-                          onPressed: () {
-                            Navigator.pop(context);
-                          },
-                          icon: const Icon(Icons.close, size: 16)),
-                    ]),
-                    const Divider(),
-                  ],
-                ),
-                content: const Text("Para confirmar o armazenamento, do item na Área de armazenamento clique em confirmar."),
-                actions: [
-                  ElevatedButton(
-                      style: ElevatedButton.styleFrom(backgroundColor: const Color(0xff1976d2)),
-                      onPressed: () {
-                        provider.movimentarProduto(produto);
-                        Navigator.pop(context, 'Confirmar');
-                      },
-                      child: const Text("Confirmar")),
-                ]));
   }
 }
