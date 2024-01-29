@@ -15,21 +15,31 @@ class _AguardandoMovimentacaoState extends State<AguardandoMovimentacao> {
       length: 2,
       child: Scaffold(
         appBar: AppBar(
-          title: const Text("Itens aguardando movimentação"),
+          backgroundColor: Colors.white,
+          title: const Text(
+            "Itens aguardando movimentação",
+            style: TextStyle(color: Colors.black),
+          ),
           actions: [
             IconButton(
               onPressed: () {},
-              icon: const Icon(Icons.account_circle_outlined),
+              icon: const Icon(
+                Icons.account_circle_outlined,
+                color: Colors.blueGrey,
+              ),
             )
           ],
-          bottom: const TabBar(tabs: [
-            Tab(
-              text: "Aguardando Movimentação",
-            ),
-            Tab(
-              text: "Itens Movimentados",
-            ),
-          ]),
+          bottom: const TabBar(
+            labelColor: Color(0xff0d47a1),
+            tabs: [
+              Tab(
+                text: "Aguardando Movimentação",
+              ),
+              Tab(
+                text: "Itens Movimentados",
+              ),
+            ],
+          ),
         ),
         body: TabBarView(
           children: [
@@ -45,8 +55,9 @@ class _AguardandoMovimentacaoState extends State<AguardandoMovimentacao> {
                           padding: const EdgeInsets.only(right: 4),
                           child: ElevatedButton.icon(
                             onPressed: () {},
-                            icon: const Icon(Icons.filter_alt_outlined),
-                            label: const Text("Filtros"),
+                            style: ElevatedButton.styleFrom(backgroundColor: const Color(0xFFE3F2FD)),
+                            icon: const Icon(Icons.filter_alt_outlined, color: Color(0xff0d47a1)),
+                            label: const Text("Filtros", style: TextStyle(color: Color(0xff0d47a1))),
                           ),
                         ),
                       ),
@@ -55,8 +66,9 @@ class _AguardandoMovimentacaoState extends State<AguardandoMovimentacao> {
                           padding: const EdgeInsets.only(left: 4),
                           child: ElevatedButton.icon(
                             onPressed: () {},
-                            icon: const Icon(Icons.menu_outlined),
-                            label: const Text("Ordenamento"),
+                            style: ElevatedButton.styleFrom(backgroundColor: const Color(0xFFE3F2FD)),
+                            icon: const Icon(Icons.menu_outlined, color: Color(0xff0d47a1)),
+                            label: const Text("Ordenamento", style: TextStyle(color: Color(0xff0d47a1))),
                           ),
                         ),
                       ),
@@ -67,9 +79,16 @@ class _AguardandoMovimentacaoState extends State<AguardandoMovimentacao> {
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.start,
                       children: [
-                        ElevatedButton(onPressed: () {}, child: const Text("Área de Recebimento")),
+                        ElevatedButton(
+                          onPressed: () {},
+                          style: ElevatedButton.styleFrom(backgroundColor: const Color(0xff1976d2)),
+                          child: const Text("Área de Recebimento"),
+                        ),
                         const SizedBox(width: 10),
-                        ElevatedButton(onPressed: () {}, child: const Text("Área de Quarentena"))
+                        ElevatedButton(
+                            onPressed: () {},
+                            style: ElevatedButton.styleFrom(backgroundColor: const Color(0xffffab40)),
+                            child: const Text("Área de Quarentena"))
                       ],
                     ),
                   ),
@@ -93,11 +112,28 @@ class _AguardandoMovimentacaoState extends State<AguardandoMovimentacao> {
                               Row(
                                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                 children: [
-                                  const Text("DISPONÍVEL PARA ARMAZENAMENTO", style: TextStyle(fontSize: 8)),
+                                  Container(
+                                    padding: const EdgeInsets.all(3),
+                                    decoration: const BoxDecoration(color: Color(0xff9fe5cb)),
+                                    child: const Text("DISPONÍVEL PARA ARMAZENAMENTO",
+                                        style: TextStyle(
+                                          fontSize: 8,
+                                          fontWeight: FontWeight.bold,
+                                          color: Color(0xff1b5e20),
+                                        )),
+                                  ),
                                   Row(
                                     children: const [
-                                      Text("Quarentena ", style: TextStyle(fontSize: 8)),
-                                      Text(" Armazenamento", style: TextStyle(fontSize: 8)),
+                                      Text("Quarentena ",
+                                          style: TextStyle(
+                                            fontSize: 8,
+                                            fontWeight: FontWeight.bold,
+                                          )),
+                                      Text(" Armazenamento",
+                                          style: TextStyle(
+                                            fontSize: 8,
+                                            fontWeight: FontWeight.bold,
+                                          )),
                                     ],
                                   ),
                                 ],
@@ -137,7 +173,10 @@ class _AguardandoMovimentacaoState extends State<AguardandoMovimentacao> {
                                 onPressed: () {
                                   dialog();
                                 },
-                                child: const Text("Movimentar")),
+                                child: const Text(
+                                  "Movimentar",
+                                  style: TextStyle(fontSize: 10, fontWeight: FontWeight.bold, color: Color(0xff0d47a1)),
+                                )),
                           ),
                         )
                       ],
@@ -191,6 +230,7 @@ class _AguardandoMovimentacaoState extends State<AguardandoMovimentacao> {
               content: const Text("Para confirmar o armazenamento, do item na Área de armazenamento clique em confirmar."),
               actions: [
                 ElevatedButton(
+                    style: ElevatedButton.styleFrom(backgroundColor: const Color(0xff1976d2)),
                     onPressed: () {
                       Navigator.pop(context, 'Confirmar');
                     },
