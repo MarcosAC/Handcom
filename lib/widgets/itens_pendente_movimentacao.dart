@@ -31,7 +31,9 @@ class ItensPendenteMovimentacao extends StatelessWidget {
                               padding: const EdgeInsets.all(3),
                               decoration: const BoxDecoration(color: Color(0xff9fe5cb)),
                               child: Text(produto.localizacao.toString(),
-                                  style: const TextStyle(fontSize: 8, fontWeight: FontWeight.bold, color: Color(0xff1b5e20))),
+                                  style: produto.localizacao!.contains("QUARENTENA")
+                                      ? const TextStyle(fontSize: 8, fontWeight: FontWeight.bold, color: Color(0xffffab40))
+                                      : const TextStyle(fontSize: 8, fontWeight: FontWeight.bold, color: Color(0xff1b5e20))),
                             ),
                             Row(
                               children: const [

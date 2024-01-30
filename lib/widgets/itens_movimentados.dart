@@ -71,9 +71,7 @@ class ItensMovimentados extends StatelessWidget {
                         color: Color(0xFFE3F2FD), borderRadius: BorderRadius.only(bottomRight: Radius.circular(4), bottomLeft: Radius.circular(4))),
                     child: Center(
                       child: TextButton(
-                          onPressed: () {
-                            //dialog(context, provider, produto);
-                          },
+                          onPressed: () {},
                           child: const Text("Movimentar",
                               style: TextStyle(
                                 fontSize: 10,
