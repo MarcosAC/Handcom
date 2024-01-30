@@ -12,6 +12,27 @@ class AguardandoMovimentacao extends StatefulWidget {
 }
 
 class _AguardandoMovimentacaoState extends State<AguardandoMovimentacao> {
+  bool isVisible = false;
+  bool click = false;
+
+  visible() {
+    setState(() {
+      isVisible = true;
+      click = true;
+    });
+
+    if (isClecked()) {
+      setState(() {
+        isVisible = true;
+        click = true;
+      });
+    }
+  }
+
+  bool isClecked() {
+    return true;
+  }
+
   @override
   Widget build(BuildContext context) {
     final produtosProvider = Provider.of<ProdutosProvider>(context);
@@ -58,7 +79,9 @@ class _AguardandoMovimentacaoState extends State<AguardandoMovimentacao> {
                             child: Padding(
                               padding: const EdgeInsets.only(right: 4),
                               child: ElevatedButton.icon(
-                                onPressed: () {},
+                                onPressed: () {
+                                  visible();
+                                },
                                 style: ElevatedButton.styleFrom(backgroundColor: const Color(0xFFE3F2FD)),
                                 icon: const Icon(Icons.filter_alt_outlined, color: Color(0xff0d47a1)),
                                 label: const Text("Filtros", style: TextStyle(color: Color(0xff0d47a1))),
@@ -78,26 +101,29 @@ class _AguardandoMovimentacaoState extends State<AguardandoMovimentacao> {
                           ),
                         ],
                       ),
-                      Padding(
-                        padding: const EdgeInsets.only(top: 10, bottom: 10),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.start,
-                          children: [
-                            ElevatedButton(
-                              onPressed: () {
-                                produtosProvider.filtrarPorLocalizacao('DISPONÍVEL PARA ARMAZENAMENTO');
-                              },
-                              style: ElevatedButton.styleFrom(backgroundColor: const Color(0xff1976d2)),
-                              child: const Text("Área de Recebimento"),
-                            ),
-                            const SizedBox(width: 10),
-                            ElevatedButton(
+                      Visibility(
+                        visible: isVisible,
+                        child: Padding(
+                          padding: const EdgeInsets.only(top: 10, bottom: 10),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.start,
+                            children: [
+                              ElevatedButton(
                                 onPressed: () {
-                                  produtosProvider.filtrarPorLocalizacao('QUARENTENA');
+                                  produtosProvider.filtrarPorLocalizacao('DISPONÍVEL PARA ARMAZENAMENTO');
                                 },
-                                style: ElevatedButton.styleFrom(backgroundColor: const Color(0xffffab40)),
-                                child: const Text("Área de Quarentena"))
-                          ],
+                                style: ElevatedButton.styleFrom(backgroundColor: const Color(0xff1976d2)),
+                                child: const Text("Área de Recebimento"),
+                              ),
+                              const SizedBox(width: 10),
+                              ElevatedButton(
+                                  onPressed: () {
+                                    produtosProvider.filtrarPorLocalizacao('QUARENTENA');
+                                  },
+                                  style: ElevatedButton.styleFrom(backgroundColor: const Color(0xffffab40)),
+                                  child: const Text("Área de Quarentena"))
+                            ],
+                          ),
                         ),
                       ),
                       const SizedBox(height: 10),
