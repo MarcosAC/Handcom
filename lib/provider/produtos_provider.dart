@@ -8,7 +8,7 @@ import 'package:handcom/models/produto.dart';
 class ProdutosProvider with ChangeNotifier {
   List<Produto> _produtos = [];
   List<Produto> _produtosMovimentados = [];
-  List<Produto> _produtosFiltrados = [];  
+  List<Produto> _produtosFiltrados = [];
 
   List<Produto> get produtos => _produtos;
   List<Produto> get produtosMovimentados => _produtosMovimentados;
@@ -28,7 +28,21 @@ class ProdutosProvider with ChangeNotifier {
   }
 
   void movimentarProduto(Produto produto) {
-    _produtos.remove(produto);
+    if (_produtosFiltrados.isNotEmpty) {
+      _produtosFiltrados.remove(produto);
+      produto.status = 'Movimentado';
+      _produtosMovimentados.add(produto);
+      notifyListeners();
+    } else {
+      _produtos.remove(produto);
+      produto.status = 'Movimentado';
+      _produtosMovimentados.add(produto);
+      notifyListeners();
+    }
+  }
+
+  void movimentarProdutoFltro(Produto produto) {
+    _produtosFiltrados.remove(produto);
     produto.status = 'Movimentado';
     _produtosMovimentados.add(produto);
     notifyListeners();
