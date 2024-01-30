@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:handcom/provider/produtos_provider.dart';
 import 'package:handcom/widgets/itens_movimentados.dart';
 import 'package:handcom/widgets/itens_pendente_movimentacao.dart';
+import 'package:provider/provider.dart';
 
 class AguardandoMovimentacao extends StatefulWidget {
   const AguardandoMovimentacao({super.key});
@@ -12,6 +14,8 @@ class AguardandoMovimentacao extends StatefulWidget {
 class _AguardandoMovimentacaoState extends State<AguardandoMovimentacao> {
   @override
   Widget build(BuildContext context) {
+    final produtosProvider = Provider.of<ProdutosProvider>(context);
+
     return DefaultTabController(
         initialIndex: 0,
         length: 2,
@@ -80,13 +84,17 @@ class _AguardandoMovimentacaoState extends State<AguardandoMovimentacao> {
                           mainAxisAlignment: MainAxisAlignment.start,
                           children: [
                             ElevatedButton(
-                              onPressed: () {},
+                              onPressed: () {
+                                produtosProvider.filtrarPorLocalizacao('DISPONÍVEL PARA ARMAZENAMENTO');
+                              },
                               style: ElevatedButton.styleFrom(backgroundColor: const Color(0xff1976d2)),
                               child: const Text("Área de Recebimento"),
                             ),
                             const SizedBox(width: 10),
                             ElevatedButton(
-                                onPressed: () {},
+                                onPressed: () {
+                                  produtosProvider.filtrarPorLocalizacao('QUARENTENA');
+                                },
                                 style: ElevatedButton.styleFrom(backgroundColor: const Color(0xffffab40)),
                                 child: const Text("Área de Quarentena"))
                           ],

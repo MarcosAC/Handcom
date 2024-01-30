@@ -10,10 +10,12 @@ class ItensPendenteMovimentacao extends StatelessWidget {
   Widget build(BuildContext context) {
     return Consumer<ProdutosProvider>(
       builder: (context, provider, _) {
+        final produtos = provider.produtosFiltrados.isNotEmpty ? provider.produtosFiltrados : provider.produtos;
+
         return ListView.builder(
-          itemCount: provider.produtos.length,
+          itemCount: produtos.length,
           itemBuilder: (context, index) {
-            final produto = provider.produtos[index];
+            final produto = produtos[index];
             return Card(
               child: Column(
                 children: [
