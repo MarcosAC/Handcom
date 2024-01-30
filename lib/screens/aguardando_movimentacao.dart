@@ -13,24 +13,11 @@ class AguardandoMovimentacao extends StatefulWidget {
 
 class _AguardandoMovimentacaoState extends State<AguardandoMovimentacao> {
   bool isVisible = false;
-  bool click = false;
 
   visible() {
     setState(() {
       isVisible = true;
-      click = true;
     });
-
-    if (isClecked()) {
-      setState(() {
-        isVisible = true;
-        click = true;
-      });
-    }
-  }
-
-  bool isClecked() {
-    return true;
   }
 
   @override
